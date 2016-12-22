@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_custom_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="2dp"
+    android:background="#d2bed6"
+    >
+
+    <TextView
+        android:textColor="#000000"
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Detail:"
+        android:layout_centerInParent="true"
+        android:padding="25sp"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif-condensed" />
+
+    <Button
+
+        android:background="@color/bg_login"
+        android:id="@+id/ib_close"
+        android:text="Close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

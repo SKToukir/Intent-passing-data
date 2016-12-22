@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/view_background"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="10dp" >
+
+
+
+        <!-- To display picture taken -->
+
+        <ImageView
+            android:id="@+id/imgPreview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="visible"
+            android:layout_marginTop="15dp"/>
+
+        <!-- Videoview to preview recorded video -->
+
+        <VideoView
+            android:id="@+id/videoPreview"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:visibility="gone"
+            android:gravity="center"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/txtPercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/txt_font"
+            android:textSize="15dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginBottom="35dp"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/etUserComplain"
+            android:gravity="center"
+            android:hint="Type your complain here"
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:minLines="6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"/>
+
+        <Button
+            android:id="@+id/btnUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/btn_bg"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/btnUploadToServer"
+            android:textColor="@color/white"
+            android:layout_marginBottom="20dp"/>
+
+    </LinearLayout>
+</ScrollView>

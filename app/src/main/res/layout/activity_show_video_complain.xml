@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_show_video_complain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="jobanbondi.jobanbondi.project.jobanbondi.ShowVideoComplainActivity">
+
+    <TextView
+        android:id="@+id/txtVComplain"
+        android:text="Complain"
+        android:textSize="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/txtDate"
+        android:text="date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:onClick="btnPlayVideo"
+        android:id="@+id/btnPlayVideo"
+        android:text="Play Video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

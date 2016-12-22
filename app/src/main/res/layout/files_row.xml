@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_margin="10dp"
+    android:background="@drawable/border_shadow">
+
+
+    <!-- Thumbnail Image -->
+    <ImageView
+        android:visibility="invisible"
+        android:background="@android:drawable/presence_video_online"
+        android:id="@+id/VideoView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+
+    <!--<TextView-->
+    <!--android:id="@+id/txtLocation"-->
+    <!--android:text="Dhaka"-->
+    <!--android:padding="5dp"-->
+    <!--android:textSize="10dip"-->
+    <!--android:textColor="#000"-->
+    <!--android:textStyle="bold"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" />-->
+
+
+    <TextView
+        android:layout_margin="3dp"
+        android:id="@+id/txtComplain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtName"
+
+        android:gravity="left"
+        android:padding="3dp"
+        android:text="Complain"
+        android:textColor="#040404"
+        android:textSize="15dip"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+
+        android:id="@+id/txtDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtName"
+        android:layout_alignBottom="@+id/txtName"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        android:layout_toEndOf="@+id/txtName"
+        android:layout_toRightOf="@+id/txtName"
+        android:padding="5dp"
+        android:text="5:45"
+        android:textColor="#10bcc9"
+        android:textSize="10dip"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_margin="3dp"
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Name"
+        android:layout_below="@+id/VideoView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <com.android.volley.toolbox.NetworkImageView
+
+
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <!--<ImageView-->
+    <!--android:id="@+id/imageView"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="150dp"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true" />-->
+
+
+
+</RelativeLayout>

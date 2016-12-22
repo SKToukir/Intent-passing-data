@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:background="@color/view_background"
+    android:baselineAligned="false"
+    android:orientation="vertical">
+
+
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:gravity="center"-->
+    <!--android:orientation="vertical" >-->
+
+    <!--&lt;!&ndash; Capture picture button &ndash;&gt;-->
+
+    <!--<Button-->
+    <!--android:id="@+id/btnCapturePicture"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="20dp"-->
+    <!--android:background="@color/btn_bg"-->
+    <!--android:paddingLeft="20dp"-->
+    <!--android:paddingRight="20dp"-->
+    <!--android:text="@string/btnTakePicture"-->
+    <!--android:textColor="@color/white" />-->
+
+
+    <!--&lt;!&ndash; Record video button &ndash;&gt;-->
+
+    <!--<Button-->
+    <!--android:id="@+id/btnRecordVideo"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@color/btn_bg"-->
+    <!--android:paddingLeft="20dp"-->
+    <!--android:paddingRight="20dp"-->
+    <!--android:text="@string/btnRecordVideo"-->
+    <!--android:textColor="@color/white" />-->
+
+
+    <!--</LinearLayout>-->
+
+    <!--<Button-->
+    <!--android:onClick="btnShowAll"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:gravity="center"-->
+    <!--android:layout_marginTop="21dp"-->
+    <!--android:id="@+id/btnShowAll"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@color/btn_bg"-->
+
+    <!--android:text="Show All"-->
+    <!--android:textColor="@color/white"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_alignParentEnd="true"-->
+    <!--android:layout_marginRight="22dp"-->
+    <!--android:layout_marginEnd="22dp" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+
+
+        android:id="@+id/last"
+        android:background="@color/white"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:onClick="btnShowAll"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="FEED"
+            android:textColor="#000000"
+            android:background="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/top"
+
+
+
+        android:gravity="center"
+        android:background="@drawable/red"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#fdfdfd"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Welcome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@drawable/border_shadow2"
+        android:id="@+id/third"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/last"
+        android:layout_below="@+id/top"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:layout_gravity="center"
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dip"
+            android:background="@color/btn_logut_bg"
+            android:text="@string/btn_logout"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+
+
+            <TextView
+
+                android:id="@+id/name"
+                android:text="Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/lbl_name"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/email"
+                android:text="Email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13dp" />
+
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:onClick="btnShowMyfiles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dip"
+                    android:background="@color/colorPrimary"
+                    android:text="My Files"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:id="@+id/button2" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+
+        <!--android:gravity="center"-->
+        <!--android:background="@color/white"-->
+        <!--android:layout_below="@+id/top"-->
+        <!--android:id="@+id/second"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true">-->
+
+         <!---->
+
+    <!--</LinearLayout>-->
+
+    <com.github.clans.fab.FloatingActionMenu
+
+        android:id="@+id/material_design_android_floating_action_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:menu_animationDelayPerItem="55"
+        fab:menu_backgroundColor="@android:color/transparent"
+        fab:menu_buttonSpacing="0dp"
+        fab:menu_colorNormal="#da3c2f"
+        fab:menu_colorPressed="#dc4b3f"
+        fab:menu_colorRipple="#99d4d4d4"
+        fab:menu_fab_label=""
+        fab:menu_fab_size="normal"
+        fab:menu_icon="@drawable/fab_add"
+        fab:menu_labels_colorNormal="#fffcfc"
+        fab:menu_labels_colorPressed="#444"
+        fab:menu_labels_colorRipple="#66efecec"
+        fab:menu_labels_cornerRadius="3dp"
+        fab:menu_labels_ellipsize="none"
+        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+        fab:menu_labels_margin="0dp"
+        fab:menu_labels_maxLines="-1"
+        fab:menu_labels_padding="8dp"
+        fab:menu_labels_position="left"
+        fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
+        fab:menu_labels_showShadow="true"
+        fab:menu_labels_singleLine="false"
+        fab:menu_labels_textColor="#151515"
+        fab:menu_labels_textSize="15sp"
+        fab:menu_openDirection="up"
+        fab:menu_shadowColor="#66aff198"
+        fab:menu_shadowRadius="4dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="4dp"
+        fab:menu_showShadow="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="27dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginTop="22dp">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/material_design_floating_action_menu_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_camera"
+            fab:fab_label="Camera"
+            fab:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/material_design_floating_action_menu_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_video_online"
+            fab:fab_label="Video"
+            fab:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/material_design_floating_action_menu_item3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_gallery"
+            fab:fab_label="Gallery"
+            fab:fab_size="mini" />
+    </com.github.clans.fab.FloatingActionMenu>
+
+
+</RelativeLayout>
