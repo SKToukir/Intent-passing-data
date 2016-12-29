@@ -115,7 +115,7 @@ public class ShowDetails extends AppCompatActivity implements LoadImageTask.List
         userID = intent.getStringExtra("user_id");
         String video_id = intent.getStringExtra("video_id");
 
-        final_url = "http://www.dogmatt.com/Project21/getAllComment.php?user_id="+userID+"&video_id"+id_;
+        //final_url = "http://www.dogmatt.com/Project21/getAllComment.php?user_id="+userID+"&video_id"+id_;
 
         // get all comments
         getTotalComment(userID,id_);
