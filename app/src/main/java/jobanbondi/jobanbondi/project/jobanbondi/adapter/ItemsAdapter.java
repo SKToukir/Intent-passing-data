@@ -89,6 +89,17 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.MyViewHolder
             videoView = (ImageView) view.findViewById(R.id.VideoView);
         }
     }
+
+    public void clearData() {
+        int size = this.modelClasses.size();
+        if (size > 0) {
+            for (int i = 0; i < size; i++) {
+                this.modelClasses.remove(0);
+            }
+
+            this.notifyItemRangeRemoved(0, size);
+        }
+    }
 //
 //    public Bitmap getResizedBitmap(Bitmap bm, int newHeight, int newWidth) {
 //        int width = bm.getWidth();

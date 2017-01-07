@@ -7,6 +7,10 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -36,11 +40,17 @@ public class GetMyfilesActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ItemsAdapter adapter;
     private ProgressDialog pDialog;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_myfiles);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         Intent intent = getIntent();
         String check = intent.getStringExtra("one");
         final String userId = intent.getStringExtra("user_id");
@@ -50,14 +60,16 @@ public class GetMyfilesActivity extends AppCompatActivity {
         URL = Config.GET_MY_FILES_URL+userId;
 
 
+        Toast.makeText(getApplicationContext(),URL,Toast.LENGTH_LONG).show();
+
         recyclerView = (RecyclerView) findViewById(R.id.list_of_filess);
-        adapter = new ItemsAdapter(this,modelClasses);
+
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
 
-        recyclerView.setAdapter(adapter);
+
 
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
@@ -92,12 +104,26 @@ public class GetMyfilesActivity extends AppCompatActivity {
             }
         }));
 
+
+        getDataFromServer(URL);
+
+    }
+
+    public void showDialog(){
         pDialog = new ProgressDialog(this);
 
         pDialog.setMessage("Loading..");
         pDialog.show();
 
-        JsonArrayRequest request = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+    }
+
+    public void getDataFromServer(String mUrl){
+
+        adapter = new ItemsAdapter(this,modelClasses);
+
+        showDialog();
+
+        JsonArrayRequest request = new JsonArrayRequest(mUrl, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 hidePDialog();
@@ -122,6 +148,7 @@ public class GetMyfilesActivity extends AppCompatActivity {
                 }
 
                 adapter.notifyDataSetChanged();
+                recyclerView.setAdapter(adapter);
 
             }
         }, new Response.ErrorListener() {
@@ -148,7 +175,33 @@ public class GetMyfilesActivity extends AppCompatActivity {
         super.onDestroy();
         hidePDialog();
     }
-//
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_my_files,menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.itemOne){
+
+
+        }else if (itemId == R.id.itemTwo){
+
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    //
 //    @Override
 //    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //

@@ -157,6 +157,7 @@ public class ShowVideoComplainActivity extends AppCompatActivity {
                         CommentClass commentClass = new CommentClass();
                         commentClass.setUserComment(object.getString(Config.USER_COMMENT));
                         commentClass.setUserName(object.getString(Config.USER_NAME));
+
                         commentClassesList.add(commentClass);
 
                     } catch (JSONException e) {

@@ -22,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -65,39 +66,40 @@ public class GetAllDataFromServerActivity extends AppCompatActivity{
 
 
         recyclerView = (RecyclerView) findViewById(R.id.list_of_files);
-        adapter = new ItemsAdapter(this,modelClasses);
+
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
 
-        recyclerView.setAdapter(adapter);
+
+
 
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 ModelClass item = modelClasses.get(position);
-                Toast.makeText(getApplicationContext(), "Item "+item.getUserId() + " is selected!", Toast.LENGTH_SHORT).show();
-                if (item.getIsImage().contains("true")){
+                Toast.makeText(getApplicationContext(), "Item " + item.getUserId() + " is selected!", Toast.LENGTH_SHORT).show();
+                if (item.getIsImage().contains("true")) {
 
                     Intent intent = new Intent(GetAllDataFromServerActivity.this, ShowDetails.class);
                     intent.putExtra("url", item.getFiles());
                     intent.putExtra("complain", item.getComplain());
                     intent.putExtra("date", item.getDateTime());
-                    intent.putExtra("id_",item.getId());
-                    intent.putExtra("user_id",item.getUserId());
+                    intent.putExtra("id_", item.getId());
+                    intent.putExtra("user_id", item.getUserId());
                     startActivity(intent);
 
-        }else{
+                } else {
 
                     Intent intent = new Intent(GetAllDataFromServerActivity.this, ShowVideoComplainActivity.class);
                     intent.putExtra("url", item.getFiles());
                     intent.putExtra("complain", item.getComplain());
                     intent.putExtra("date", item.getDateTime());
-                    intent.putExtra("id_",item.getId());
-                    intent.putExtra("user_id",item.getUserId());
+                    intent.putExtra("id_", item.getId());
+                    intent.putExtra("user_id", item.getUserId());
                     startActivity(intent);
-        }
+                }
             }
 
             @Override
@@ -106,16 +108,31 @@ public class GetAllDataFromServerActivity extends AppCompatActivity{
             }
         }));
 
+
+
+        getDataFromServer(URL);
+
+    }
+
+    public void showDialog(){
         pDialog = new ProgressDialog(this);
 
         pDialog.setMessage("Loading..");
         pDialog.show();
+    }
 
-        JsonArrayRequest request = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+    public void getDataFromServer(String mUrl){
+
+        adapter = new ItemsAdapter(this, modelClasses);
+
+        showDialog();
+
+        adapter.clearData();
+        JsonArrayRequest request = new JsonArrayRequest(mUrl, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 hidePDialog();
-                for (int i = 0; i<=response.length(); i++){
+                for (int i = 0; i <= response.length(); i++) {
 
                     try {
                         JSONObject object = response.getJSONObject(i);
@@ -134,21 +151,26 @@ public class GetAllDataFromServerActivity extends AppCompatActivity{
                     }
                 }
 
+
                 adapter.notifyDataSetChanged();
+                recyclerView.setAdapter(adapter);
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 hidePDialog();
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
 
             }
         });
 
         SingletonClass.getInstance(this).addToRequestQueue(request);
+
         //AppController.getInstance().addToRequestQueue(request);
     }
+
+
 
     private void hidePDialog() {
         if (pDialog != null) {
@@ -203,11 +225,19 @@ public class GetAllDataFromServerActivity extends AppCompatActivity{
 
         if (item_id == R.id.set_fvrt) {
 
+//            pDialog = new ProgressDialog(getApplicationContext());
+//            pDialog.setMessage("Loading...");
+//            pDialog.show();
+
             Toast.makeText(getApplicationContext(),"Fvrt",Toast.LENGTH_LONG).show();
+
+
+           getDataFromServer(Config.LAST_WEEk_DATA_URL);
 
         }else if (item_id == R.id.menu_share){
 
             Toast.makeText(getApplicationContext(),"not Fvrt",Toast.LENGTH_LONG).show();
+            getDataFromServer(Config.LAST_MONTH_DATA_URL);
         }
         return super.onOptionsItemSelected(item);
     }

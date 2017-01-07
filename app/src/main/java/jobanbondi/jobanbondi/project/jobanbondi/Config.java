@@ -15,7 +15,9 @@ public class Config {
     public static final String COMMENT_VIDEO_ID = "&video_id=";
     public static final String USER_NAME = "user_name";
     public static final String USER_COMMENT = "user_comment";
-
+    public static final String LAST_MONTH_DATA_URL = "http://www.dogmatt.com/Project21/json_last_month.php";
+    public static final String LAST_WEEk_DATA_URL = "http://www.dogmatt.com/Project21/json_last_week.php";
+    public static final String POST_LIKE = "http://www.dogmatt.com/Project21/post_like.php";
 
     //For Login
     // Server user login url

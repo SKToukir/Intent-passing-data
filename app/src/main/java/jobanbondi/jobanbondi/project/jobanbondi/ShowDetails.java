@@ -124,17 +124,26 @@ public class ShowDetails extends AppCompatActivity implements LoadImageTask.List
 
         new LoadImageTask(this).execute(url);
 
-        i = 0;
+        i = 1;
         btnLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+
+
+                likeToServer(id_,userID,i);
 
                 // get total like from server
                 //getTotalLike();
 
             }
         });
+
+    }
+
+    private void getTotalLike() {
+
+
 
     }
 
@@ -244,10 +253,10 @@ public class ShowDetails extends AppCompatActivity implements LoadImageTask.List
 
     }
 
-    private void likeToServer(final String comnt, final String id, final String Uid,final String userName) {
+    private void likeToServer(final String file_id, final String user_id, final int likes) {
 
 
-        StringRequest request = new StringRequest(Request.Method.POST, Config.POST_COMMENT, new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.POST, Config.POST_LIKE, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 hidePDialog();
@@ -264,10 +273,9 @@ public class ShowDetails extends AppCompatActivity implements LoadImageTask.List
             protected Map<String,String> getParams() {
 
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("video_id",id);
-                params.put("user_id", Uid);
-                params.put("user_comment",comnt);
-                params.put("user_name",userName);
+                params.put("file_id", file_id);
+                params.put("user_id",user_id);
+                params.put("likes",String.valueOf(likes));
                 return params;
             }
         };

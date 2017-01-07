@@ -13,13 +13,13 @@
                 android:id="@+id/set_fvrt"
                 android:icon="@drawable/like"
                 android:orderInCategory="100"
-                android:title="Last Month"
+                android:title="Last Week"
                 app:showAsAction="always|withText"></item>
             <item
                 android:id="@+id/menu_share"
                 android:icon="@drawable/like"
                 android:orderInCategory="100"
-                android:title="Last Week"
+                android:title="Last Month"
                 app:showAsAction="always|withText"></item>
 
         </menu>

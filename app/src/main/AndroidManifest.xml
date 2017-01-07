@@ -47,13 +47,15 @@
             android:label="@string/app_name"
             android:launchMode="singleTop" />
         <activity android:name=".GetAddrActivity" />
-        <activity android:name=".GetMyfilesActivity"></activity>
+        <activity android:name=".GetMyfilesActivity" />
         <activity android:name=".TCActivity">
-        <intent-filter>
-            <category android:name="android.intent.category.DEFAULT" />
-            <action android:name="android.intent.action.VIEW" />
-            <data android:scheme=".TCActivity" />
-        </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data android:scheme=".TCActivity" />
+            </intent-filter>
         </activity>
     </application>
 
